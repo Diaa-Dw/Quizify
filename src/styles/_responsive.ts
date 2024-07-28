@@ -8,7 +8,7 @@ interface BreakpointsProps {
 }
 
 const breakpoints: BreakpointsProps = {
-  small: "576px",
+  small: "600px",
   medium: "868px",
   large: "992px",
   xlarge: "1200px",

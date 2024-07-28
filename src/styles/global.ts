@@ -21,6 +21,8 @@ body {
       ::selection {
     background-color: ${({ theme }) => theme.colors.primary};
   }
+
+  /* overflow: hidden; */
   ${respondTo.medium`
   padding: 0.4rem;
 
