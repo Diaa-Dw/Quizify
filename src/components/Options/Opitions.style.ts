@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondTo } from "../../styles/_responsive";
 
 export const StyledOptions = styled.div`
   display: flex;
@@ -53,4 +54,13 @@ export const StyledOptions = styled.div`
   .btn-option:disabled {
     cursor: not-allowed;
   }
+
+  ${respondTo.small`
+  .btn{
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+
+    }
+    
+    `}
 `;

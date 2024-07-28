@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
 import Error from "../../components/Error/Error";
 import { generateURL } from "../../utils/generateURL";
+import Result from "../../components/results/Resut";
 
 function QuizPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,9 +26,8 @@ function QuizPage() {
   );
   const dispatch = useDispatch();
 
+  const url = generateURL(questionsNumber, categoryId, difficulty);
   useEffect(() => {
-    const url = generateURL(questionsNumber, categoryId, difficulty);
-    console.log("🚀 ~ useEffect ~ url:", url);
     dispatch(fetchQuestions(url));
   }, []);
 
@@ -36,10 +36,10 @@ function QuizPage() {
   }
 
   if (status === "finished") {
-    return <h1>Done</h1>;
+    return <Result />;
   }
   if (status === "error") {
-    return <Error error={error} />;
+    return <Error error={error} url={url} />;
   }
   return (
     <StyledQuizPage>

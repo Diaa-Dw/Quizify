@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondTo } from "../../styles/_responsive";
 
 export const StyledTimer = styled.div`
   float: left;
@@ -9,4 +10,12 @@ export const StyledTimer = styled.div`
   border-radius: 100px;
   background-color: rgba(255, 255, 255, 0.3);
   font-weight: 500;
+
+  ${respondTo.small`
+
+  font-size: 1.4rem;
+  padding: .8rem 1.8rem;
+
+    
+    `}
 `;

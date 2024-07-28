@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondTo } from "../../styles/_responsive";
 
 export const StyledProgress = styled.header`
   width: 100%;
@@ -25,4 +26,11 @@ export const StyledProgress = styled.header`
     background-color: var(--color-theme);
     border-radius: 100px;
   }
+
+  ${respondTo.small`
+
+  font-size: 1.4rem;
+
+  
+  `}
 `;

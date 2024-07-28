@@ -28,8 +28,8 @@ export const StyledButton = styled.button`
   }
 
   ${respondTo.small`
-  padding: ${({ size }) =>
-    size === "small" ? "1.2rem 2.5rem" : "1.5rem 3rem"};
+  padding: ${({ size }) => (size === "small" ? "1rem 1.5rem" : "1.5rem 3rem")};
+  font-size: 1.4rem;
 
     `}
 `;

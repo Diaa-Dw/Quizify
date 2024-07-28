@@ -37,6 +37,8 @@ const questionsSlice = createSlice({
       .addCase(fetchQuestions.fulfilled, (state, action) => {
         state.status = "ready";
         state.error = "";
+        state.index = 0;
+        state.points = 0;
         state.questions = action.payload;
         state.remainingSeconds = state.questions.length * SECS_PER_QUESTION;
       })
@@ -66,5 +68,8 @@ export const fetchQuestions = createAsyncThunk(
 );
 
 export const { nextQuestion, tickTack, correctAnswer } = questionsSlice.actions;
+
+export const getTotalPoints = (state) =>
+  state.questions.questions.length * POINTS_PER_QUESTION;
 
 export default questionsSlice.reducer;

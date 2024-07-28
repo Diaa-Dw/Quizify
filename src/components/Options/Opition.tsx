@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { StyledOptions } from "./Opitions.style";
 import { shuffleArray } from "../../utils/shuflleArray";
-
+import he from "he";
 function Opitions({
   incorrect_answers,
   correct_answer,
@@ -26,7 +26,7 @@ function Opitions({
             onClick={() => handleOptionSelection(option)}
             disabled={answer !== null}
           >
-            {option}
+            {he.decode(option)}
           </button>
         );
       })}

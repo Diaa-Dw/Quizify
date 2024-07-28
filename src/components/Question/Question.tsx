@@ -43,13 +43,15 @@ function Question({ question }) {
       />
       <QuestionFooter>
         <Timer />
-        <Button
-          onClick={hanldeNextQuestion}
-          color='rgba(255,255,255,0.3)'
-          size='small'
-        >
-          Next
-        </Button>
+        {answer && (
+          <Button
+            onClick={hanldeNextQuestion}
+            color='rgba(255,255,255,0.3)'
+            size='small'
+          >
+            Next
+          </Button>
+        )}
       </QuestionFooter>
     </StyledQuestion>
   );

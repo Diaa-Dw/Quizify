@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { fetchQuestions } from "../../features/questions/questionsSlice";
 import Button from "../Button/Button";
 
-function Error({ error }) {
+function Error({ error, url }) {
   const [timer, setTimer] = useState(5);
   const dispatch = useDispatch();
 
@@ -19,7 +19,6 @@ function Error({ error }) {
   }, [timer]);
 
   const handleClick = () => {
-    const url = `https://opentdb.com/api.php?amount=5`;
     dispatch(fetchQuestions(url));
   };
 
