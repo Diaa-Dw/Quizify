@@ -10,6 +10,7 @@ import {
   nextQuestion,
 } from "../../features/questions/questionsSlice";
 import Progress from "../Progress/Progress";
+import he from "he";
 
 function Question({ question }) {
   const [answer, setAnswer] = useState(null);
@@ -33,7 +34,7 @@ function Question({ question }) {
     <StyledQuestion>
       <Progress answer={answer} />
 
-      <h4>{question.question}</h4>
+      <h4>{he.decode(question.question)}</h4>
       <Opitions
         correct_answer={question.correct_answer}
         incorrect_answers={question.incorrect_answers}

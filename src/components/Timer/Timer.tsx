@@ -9,16 +9,16 @@ function Timer() {
   const mins = Math.floor(remainingSeconds / 60);
   const seconds = remainingSeconds % 60;
 
-  // useEffect(
-  //   function () {
-  //     const id = setInterval(function () {
-  //       // dispatch(tickTack());
-  //     }, 1000);
+  useEffect(
+    function () {
+      const id = setInterval(function () {
+        dispatch(tickTack());
+      }, 1000);
 
-  //     return () => clearInterval(id);
-  //   },
-  //   [dispatch]
-  // );
+      return () => clearInterval(id);
+    },
+    [dispatch]
+  );
 
   return (
     <StyledTimer>

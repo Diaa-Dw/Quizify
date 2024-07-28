@@ -13,7 +13,7 @@ function Home() {
           <h3>
             Test your skills across various topics and compete with friends.
           </h3>
-          <Link to='topics'>
+          <Link to='quiz-settings'>
             <Button>Start a Quiz</Button>
           </Link>
         </LeftBox>

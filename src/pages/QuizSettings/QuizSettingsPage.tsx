@@ -8,6 +8,7 @@ import {
   Select,
 } from "./QuizSettingsPage.style";
 import Button from "../../components/Button/Button";
+import { categoryData } from "../../utils/cateogryData";
 
 const buttonColors = {
   easy: "#4caf50",
@@ -47,10 +48,11 @@ const QuizSettingsPage = () => {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value=''>Select Category</option>
-          <option value='9'>General Knowledge</option>
-          <option value='10'>Books</option>
-          <option value='11'>Film</option>
+          {categoryData.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
           {/* Add more categories as needed */}
         </Select>
         <Label htmlFor='difficulty'>Difficulty:</Label>

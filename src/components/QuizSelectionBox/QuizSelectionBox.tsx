@@ -13,19 +13,19 @@ const ButtonData = [
     icon: <FontAwesomeIcon icon={faLandmark} />,
     title: "History",
     color: ["rgb(149, 99, 64)", "#CA9570"],
-    link: "/quiz-settings ",
+    link: "/quiz?categoryId=23",
   },
   {
     icon: <FontAwesomeIcon icon={faComputer} />,
     title: "computer science",
     color: ["#4D9DF2", "#3E5D80"],
-    link: "/Quiz-settings",
+    link: "/quiz?categoryId=18",
   },
   {
     icon: <FontAwesomeIcon icon={faEllipsis} />,
     title: "More",
     color: ["#FBBB46", "#FFA500"],
-    link: "/quiz-settings ",
+    link: "/quiz-settings",
   },
 ];
 

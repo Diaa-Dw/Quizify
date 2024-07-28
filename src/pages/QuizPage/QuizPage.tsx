@@ -13,6 +13,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
 import Error from "../../components/Error/Error";
+import { generateURL } from "../../utils/generateURL";
 
 function QuizPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,7 +26,8 @@ function QuizPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const url = `https://opentdb.com/api.php?amount=5`;
+    const url = generateURL(questionsNumber, categoryId, difficulty);
+    console.log("🚀 ~ useEffect ~ url:", url);
     dispatch(fetchQuestions(url));
   }, []);
 
