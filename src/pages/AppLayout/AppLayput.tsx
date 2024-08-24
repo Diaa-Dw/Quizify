@@ -1,4 +1,3 @@
-import React from "react";
 import { App } from "./AppLayput.style";
 import Logo from "../../components/Logo/Logo";
 import { Outlet } from "react-router-dom";

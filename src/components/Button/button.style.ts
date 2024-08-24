@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { respondTo } from "../../styles/_responsive";
 
-export const StyledButton = styled.button`
+interface StyledButtonProps {
+  color: string | undefined;
+  size: string;
+}
+
+export const StyledButton = styled.button<StyledButtonProps>`
   color: ${({ color, theme }) => (color ? "#fff" : theme.colors.textDark)};
   margin-top: ${({ size }) => (size === "small" ? "0rem" : "4rem")};
   font-size: 1.6rem;
@@ -28,7 +33,8 @@ export const StyledButton = styled.button`
   }
 
   ${respondTo.small`
-  padding: ${({ size }) => (size === "small" ? "1rem 1.5rem" : "1.5rem 3rem")};
+  padding: ${({ size }: { size: string }) =>
+    size === "small" ? "1rem 1.5rem" : "1.5rem 3rem"};
   font-size: 1.4rem;
 
     `}

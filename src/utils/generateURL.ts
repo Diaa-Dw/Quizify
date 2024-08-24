@@ -1,4 +1,8 @@
-export const generateURL = (numQuestions, categoryId, difficulty) => {
+export const generateURL = (
+  numQuestions: number,
+  categoryId: string | null,
+  difficulty: string | null
+) => {
   let url = `https://opentdb.com/api.php?`;
   if (numQuestions && numQuestions > 0 && numQuestions <= 20) {
     url += `amount=${numQuestions}`;

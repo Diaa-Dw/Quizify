@@ -3,10 +3,11 @@ import { ErrorContainer } from "./Error.style";
 import { useDispatch } from "react-redux";
 import { fetchQuestions } from "../../features/questions/questionsSlice";
 import Button from "../Button/Button";
+import { AppDispatch } from "../../store";
 
-function Error({ error, url }) {
+function Error({ error, url }: { error: string; url: string }) {
   const [timer, setTimer] = useState(5);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     if (timer !== 0) {

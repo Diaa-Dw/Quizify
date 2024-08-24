@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { respondTo } from "../../styles/_responsive";
 
-export const QuizBox = styled(Link)`
+interface QuizBoxParams {
+  color: string[];
+  iconColor: string | undefined;
+}
+
+export const QuizBox = styled(Link)<QuizBoxParams>`
   background: linear-gradient(
     to right,
     ${({ color }) => (color ? color[0] : "rgba(255,255,255,0.5)")},

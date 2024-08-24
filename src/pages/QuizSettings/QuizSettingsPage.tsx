@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Container,
@@ -9,8 +9,9 @@ import {
 } from "./QuizSettingsPage.style";
 import Button from "../../components/Button/Button";
 import { categoryData } from "../../utils/cateogryData";
+type Difficulty = "easy" | "medium" | "hard";
 
-const buttonColors = {
+const buttonColors: { [key in Difficulty]: string } = {
   easy: "#4caf50",
   medium: "#ff9800",
   hard: "#f44336",
@@ -19,10 +20,10 @@ const buttonColors = {
 const QuizSettingsPage = () => {
   const [numberOfQuestions, setNumberOfQuestions] = useState("10");
   const [category, setCategory] = useState("");
-  const [difficulty, setDifficulty] = useState("");
+  const [difficulty, setDifficulty] = useState<Difficulty>("easy");
   const navigate = useNavigate();
 
-  const startQuiz = (e) => {
+  const startQuiz = (e: FormEvent) => {
     e.preventDefault();
     navigate(
       `/quiz?categoryId=${category}&difficulty=${difficulty}&questions=${numberOfQuestions}`
@@ -59,7 +60,9 @@ const QuizSettingsPage = () => {
         <Select
           id='difficulty'
           value={difficulty}
-          onChange={(e) => setDifficulty(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+            setDifficulty(e.target.value as Difficulty)
+          }
         >
           <option value=''>Select Difficulty</option>
           <option value='easy'>Easy</option>

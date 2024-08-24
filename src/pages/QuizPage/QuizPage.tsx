@@ -1,32 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import Progress from "../../components/Progress/Progress";
 import { StyledQuizPage } from "./QuizPage.style";
-import QuestionFooter from "../../components/QuestionFooter/QuestionFooter";
-import Timer from "../../components/Timer/Timer";
-import Button from "../../components/Button/Button";
 import Question from "../../components/Question/Question";
-import {
-  fetchQuestions,
-  nextQuestion,
-} from "../../features/questions/questionsSlice";
+import { fetchQuestions } from "../../features/questions/questionsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../components/Spinner/Spinner";
 import Error from "../../components/Error/Error";
 import { generateURL } from "../../utils/generateURL";
 import Result from "../../components/results/Resut";
+import { AppDispatch, RootState } from "../../store";
 
 function QuizPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [searchParams] = useSearchParams();
   const categoryId = searchParams.get("categoryId");
   const difficulty = searchParams.get("difficulty");
   const questionsNumber = searchParams.get("questions");
   const { status, error, questions, index } = useSelector(
-    (state) => state.questions
+    (state: RootState) => state.questions
   );
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
-  const url = generateURL(questionsNumber, categoryId, difficulty);
+  const url = generateURL(Number(questionsNumber), categoryId, difficulty);
   useEffect(() => {
     dispatch(fetchQuestions(url));
   }, []);

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 
 const SECS_PER_QUESTION = 45;
 export const POINTS_PER_QUESTION = 30;
@@ -44,15 +45,15 @@ const questionsSlice = createSlice({
       })
       .addCase(fetchQuestions.rejected, (state, action) => {
         state.status = "error";
-        state.error = action.error.message;
+        state.error = action.error.message!;
       });
   },
 });
 
 export const fetchQuestions = createAsyncThunk(
   "questions/fetchQuestions",
-  async (url) => {
-    const response = await fetch(url);
+  async (url: string) => {
+    const response = await fetch(url!);
 
     const data = await response.json();
     console.log("🚀 ~ data:", data);
@@ -69,7 +70,7 @@ export const fetchQuestions = createAsyncThunk(
 
 export const { nextQuestion, tickTack, correctAnswer } = questionsSlice.actions;
 
-export const getTotalPoints = (state) =>
+export const getTotalPoints = (state: RootState) =>
   state.questions.questions.length * POINTS_PER_QUESTION;
 
 export default questionsSlice.reducer;

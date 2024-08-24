@@ -1,21 +1,24 @@
-import React, { useCallback, useState } from "react";
 import { StyledOptions } from "./Opitions.style";
-import { shuffleArray } from "../../utils/shuflleArray";
-import he from "he";
+import { sortAlphabetically } from "../../utils/sortAlphabetically";
+
+interface OptionsProps {
+  incorrect_answers: string[];
+  correct_answer: string;
+  handleOptionSelection: (selectedOption: string) => void;
+  answer: string | null;
+}
+
 function Opitions({
   incorrect_answers,
   correct_answer,
   handleOptionSelection,
   answer,
-}) {
-  const options = useCallback(
-    shuffleArray([...incorrect_answers, correct_answer], Date.now()),
-    [incorrect_answers, correct_answer]
-  );
+}: OptionsProps) {
+  const options = sortAlphabetically([...incorrect_answers, correct_answer]);
 
   return (
     <StyledOptions>
-      {options.map((option, idx) => {
+      {options.map((option: string, idx: number) => {
         return (
           <button
             key={idx}
@@ -26,7 +29,7 @@ function Opitions({
             onClick={() => handleOptionSelection(option)}
             disabled={answer !== null}
           >
-            {he.decode(option)}
+            {option}
           </button>
         );
       })}

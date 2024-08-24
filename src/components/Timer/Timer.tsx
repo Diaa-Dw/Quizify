@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import { StyledTimer } from "./Timer.style";
 import { useDispatch, useSelector } from "react-redux";
 import { tickTack } from "../../features/questions/questionsSlice";
+import { RootState } from "../../store";
 
 function Timer() {
-  const { remainingSeconds } = useSelector((state) => state.questions);
+  const { remainingSeconds } = useSelector(
+    (state: RootState) => state.questions
+  );
   const dispatch = useDispatch();
   const mins = Math.floor(remainingSeconds / 60);
   const seconds = remainingSeconds % 60;

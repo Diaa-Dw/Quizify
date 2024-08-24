@@ -1,4 +1,3 @@
-import React from "react";
 import { LeftBox, RightBox, StyledHome } from "./Home.style";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";

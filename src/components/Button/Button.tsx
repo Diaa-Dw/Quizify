@@ -2,9 +2,11 @@ import { StyledButton } from "./button.style";
 
 interface ButtonProps {
   children: React.ReactNode;
-  color: string;
-  size: string;
-  rounded: string;
+  color?: string;
+  size?: string;
+  rounded?: string;
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
 function Button({
@@ -16,10 +18,10 @@ function Button({
 }: ButtonProps) {
   return (
     <StyledButton
-      size={size}
       color={color}
       onClick={onClick}
       disabled={disabled}
+      size={size}
     >
       {children}
     </StyledButton>

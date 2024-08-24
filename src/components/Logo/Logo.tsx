@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { LogoContainer, StyledLogo } from "./logo.style";
 
 function Logo() {

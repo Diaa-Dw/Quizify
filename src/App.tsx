@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "./styles/theme";
+import { lightTheme } from "./styles/theme";
 import { GlobalStyles } from "./styles/global";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayput from "./pages/AppLayout/AppLayput";
@@ -29,9 +28,8 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [theme, setTheme] = useState("light");
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
       <RouterProvider router={router}></RouterProvider>
     </ThemeProvider>
